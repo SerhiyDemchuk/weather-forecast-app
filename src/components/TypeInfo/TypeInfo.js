@@ -40,7 +40,7 @@ class TypeInfo extends React.Component {
                 this.setState( {
                     cityName: 'Incorrect city :( ',
                     countryName: '',
-                    cityDesc: '',
+                    cityDesc: 'Type another one',
                     cityTemp: '',
                     inputValue: '',
                 } )

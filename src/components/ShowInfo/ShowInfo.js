@@ -6,7 +6,7 @@ class ShowInfo extends React.Component {
             // пропсами название города
             <div className="display">
                 <div className="display-name">
-                    <h1 className="name">{this.props.cityName}</h1>
+                    <h1 className="name">{this.props.cityName} {this.props.countryName}</h1>
                 </div>
                 {/* погода */}
                 <div className="display-desc">

@@ -55,7 +55,7 @@ input[type="submit"] {
   margin: 0 auto;
   height: 200px;
   width: 700px;
-  background: #e7e7e7;
+  /* background: #e7e7e7; */
   text-align: center;
 }
 

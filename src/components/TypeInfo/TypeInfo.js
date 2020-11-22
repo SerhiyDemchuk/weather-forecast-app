@@ -10,7 +10,7 @@ class TypeInfo extends React.Component {
             cityName: '',
             countryName: '',
             cityDesc: '',
-            cityTemp: ''
+            cityTemp: '',
         }
     }
 
@@ -32,8 +32,10 @@ class TypeInfo extends React.Component {
                     cityDesc: data['weather'][0]['description'],
                     cityTemp: Math.round(data.main.temp - 273.15),
                     inputValue: '',
-                })
+                });
+                console.log(this.state.data);
             })
+
             .catch(error => {
                 // при ошибке все поля остаются пустыми
                 console.log(error);
@@ -43,7 +45,7 @@ class TypeInfo extends React.Component {
                     cityDesc: 'Type another one',
                     cityTemp: '',
                     inputValue: '',
-                } )
+                })
             })
     }
     render() {
@@ -63,14 +65,14 @@ class TypeInfo extends React.Component {
                         value="Submit"
                         onClick={this.submitCity} />
                 </div>
-            <div>
-                <ShowInfo
-                // передача пропсов для отображения информации
-                    cityName={this.state.cityName}
-                    countryName={this.state.countryName}
-                    cityTemp={this.state.cityTemp}
-                    cityDesc={this.state.cityDesc}
-                />
+                <div>
+                    <ShowInfo
+                        // передача пропсов для отображения информации
+                        cityName={this.state.cityName}
+                        countryName={this.state.countryName}
+                        cityTemp={this.state.cityTemp}
+                        cityDesc={this.state.cityDesc}
+                    />
                 </div>
             </div>
         )

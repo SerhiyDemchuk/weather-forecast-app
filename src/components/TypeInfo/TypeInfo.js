@@ -1,16 +1,13 @@
 import React from 'react';
 import ShowInfo from '../ShowInfo/ShowInfo';
+import * as actionCreators from '../../actions';
+import {connect} from 'react-redux';
 
 class TypeInfo extends React.Component {
     constructor(props) {
         super();
         this.state = {
             inputValue: '',
-            apiKey: 'f10b637ca08b184f47102d9f1de2c344',
-            cityName: '',
-            countryName: '',
-            cityDesc: '',
-            cityTemp: '',
         }
     }
 
@@ -19,35 +16,44 @@ class TypeInfo extends React.Component {
         this.setState({ inputValue: e.target.value });
     }
 
-    // из стейта название города и ключ апи
-    submitCity = (e) => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.inputValue}&appid=${this.state.apiKey}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                this.setState({
-                    // тут же в стейт информация о названии города, погоде и температуре
-                    cityName: data.name,
-                    countryName: data.sys.country,
-                    cityDesc: data['weather'][0]['description'],
-                    cityTemp: Math.round(data.main.temp - 273.15),
-                    inputValue: '',
-                });
-                console.log(this.state.data);
-            })
+    // fetchApi(value) {
+    //     console.log('I\'m active!!!');
+    //     return(dispatch) => {
+    //         return axios.get(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=f10b637ca08b184f47102d9f1de2c344`)
+    //             .then((response) => {
+    //                 dispatch(loadData(response.data))
+    //             })
+    //     }
+    // }
 
-            .catch(error => {
-                // при ошибке все поля остаются пустыми
-                console.log(error);
-                this.setState( {
-                    cityName: 'Incorrect city :( ',
-                    countryName: '',
-                    cityDesc: 'Type another one',
-                    cityTemp: '',
-                    inputValue: '',
-                })
-            })
-    }
+    // // из стейта название города и ключ апи
+    // submitCity = (e) => {
+    //     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.inputValue}&appid=${this.state.apiKey}`)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             console.log(data);
+    //             this.setState({
+    //                 // тут же в стейт информация о названии города, погоде и температуре
+    //                 cityName: data.name,
+    //                 countryName: data.sys.country,
+    //                 cityDesc: data['weather'][0]['description'],
+    //                 cityTemp: Math.round(data.main.temp - 273.15),
+    //                 inputValue: '',
+    //             });
+    //         })
+
+    //         .catch(error => {
+    //             // при ошибке все поля остаются пустыми
+    //             console.log(error);
+    //             this.setState( {
+    //                 cityName: 'Incorrect city :( ',
+    //                 countryName: '',
+    //                 cityDesc: 'Type another one',
+    //                 cityTemp: '',
+    //                 inputValue: '',
+    //             })
+    //         })
+    // }
     render() {
         return (
             <div>
@@ -56,22 +62,22 @@ class TypeInfo extends React.Component {
                         type="text"
                         className="input-value"
                         placeholder="City name..."
-                        value={this.state.inputValue}
-                        onChange={this.typeCity} />
+                        defaultValue={this.state.inputValue}
+                        onChange={this.props.typeCity} />
 
                     <input
                         type="submit"
                         className="button"
                         value="Submit"
-                        onClick={this.submitCity} />
+                        onClick={this.props.fetchApi} />
                 </div>
                 <div>
                     <ShowInfo
                         // передача пропсов для отображения информации
-                        cityName={this.state.cityName}
-                        countryName={this.state.countryName}
-                        cityTemp={this.state.cityTemp}
-                        cityDesc={this.state.cityDesc}
+                        cityName={this.props.cityName}
+                        countryName={this.props.countryName}
+                        cityTemp={this.props.cityTemp}
+                        cityDesc={this.props.cityDesc}
                     />
                 </div>
             </div>
@@ -79,4 +85,8 @@ class TypeInfo extends React.Component {
     }
 }
 
-export default TypeInfo;
+const mapStateToProps = (state) => {
+    return state;
+}
+
+export default connect (mapStateToProps, actionCreators)(TypeInfo);

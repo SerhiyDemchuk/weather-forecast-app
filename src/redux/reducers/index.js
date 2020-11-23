@@ -4,7 +4,9 @@ let initialState = {
     cityName: '',
     countryName: '',
     cityDesc: '',
-    cityTemp: '',
+    cityTemp: null,
+    cityTempAboveZero: null,
+    cityTempBelowZero: null,
     error: ''
 }
 
@@ -23,6 +25,8 @@ export const loadDataReducer = (state = initialState, action) => {
                 countryName: action.payload.sys.country,
                 cityDesc: action.payload['weather'][0]['description'],
                 cityTemp: Math.round(action.payload.main.temp - 273.15),
+                cityTempAboveZero: Math.round(action.payload.main.temp - 273.15) >= 0 ? Math.round(action.payload.main.temp - 273.15) : null,
+                cityTempBelowZero: Math.round(action.payload.main.temp - 273.15) < 0 ? Math.round(action.payload.main.temp - 273.15) : null,
                 error: false,
             }
             // otherwise show an error
@@ -30,9 +34,7 @@ export const loadDataReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cityName: 'An error occured',
-                countryName: '',
                 cityDesc: 'Please, type another name',
-                cityTemp: '',
                 error: action.payload
             }
         default:

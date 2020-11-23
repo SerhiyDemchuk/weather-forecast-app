@@ -2,6 +2,7 @@ import React from 'react';
 import ShowInfo from '../ShowInfo/ShowInfo';
 import * as actionCreators from '../../redux/fetchApi';
 import {connect} from 'react-redux';
+import Barchart from '../Charts/Charts';
 
 class TypeInfo extends React.Component {
     constructor(props) {
@@ -31,15 +32,21 @@ class TypeInfo extends React.Component {
                         type="submit"
                         className="button"
                         // here the value passes from state to a function as an argument
-                        onClick={() => {this.props.fetchApi(this.state.inputValue)}}>Submit</button>
+                        onClick={() => {
+                            this.props.fetchApi(this.state.inputValue)}}>Submit</button>
                 </div>
-                <div>
+                <div className="show-info">
                     <ShowInfo
                         // pass props to show the data
                         cityName={this.props.cityName}
                         countryName={this.props.countryName}
                         cityTemp={this.props.cityTemp}
                         cityDesc={this.props.cityDesc}
+                    />
+                    <Barchart
+                        cityTempAboveZero={this.props.cityTempAboveZero}
+                        cityTempBelowZero={this.props.cityTempBelowZero}
+                        cityName={this.props.cityName} 
                     />
                 </div>
             </div>

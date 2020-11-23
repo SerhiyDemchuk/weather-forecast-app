@@ -2,6 +2,7 @@ import React from 'react';
 
 class ShowInfo extends React.Component {
     render() {
+
         return (
             // пропсами название города
             <div className="display">

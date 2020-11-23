@@ -1,10 +1,7 @@
 import React, { PureComponent } from 'react';
-import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine,
-} from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 export default class Barchart extends PureComponent {
-  static jsfiddleUrl = 'https://jsfiddle.net/alidingling/q68cz43w/';
 
   render() {
     return (

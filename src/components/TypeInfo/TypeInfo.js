@@ -2,7 +2,6 @@ import React from 'react';
 import ShowInfo from '../ShowInfo/ShowInfo';
 import * as actionCreators from '../../redux/actions';
 import {connect} from 'react-redux';
-import { loadDataSuccessReducer } from '../../redux/reducers';
 
 class TypeInfo extends React.Component {
     constructor(props) {
@@ -50,9 +49,7 @@ class TypeInfo extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        loadDataSuccessReducer: loadDataSuccessReducer
-    }
+    return state;
 }
 
 export default connect (mapStateToProps, actionCreators)(TypeInfo);

@@ -11,13 +11,12 @@ class TypeInfo extends React.Component {
         }
     }
 
-    // значение из инпута в стейт
+    // pass the input value to state
     typeCity = (e) => {
         this.setState({ inputValue: e.target.value });
     }
 
     render() {
-        // console.log(this.props);
         return (
             <div>
                 <div className="input">
@@ -32,11 +31,12 @@ class TypeInfo extends React.Component {
                         type="submit"
                         className="button"
                         defaultValue="Submit"
+                        // here the value passes from state to a function as an argument
                         onClick={() => {this.props.fetchApi(this.state.inputValue)}} />
                 </div>
                 <div>
                     <ShowInfo
-                        // передача пропсов для отображения информации
+                        // pass props to show the data
                         cityName={this.props.cityName}
                         countryName={this.props.countryName}
                         cityTemp={this.props.cityTemp}

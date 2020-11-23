@@ -8,8 +8,10 @@ let initialState = {
     error: ''
 }
 
+
 export const loadDataReducer = (state = initialState, action) => {
     switch (action.type) {
+        // in a case of success we get a needed info to be saved in out state
         case LOAD_DATA_SUCCESS:
             return {
                 ...state,
@@ -19,6 +21,7 @@ export const loadDataReducer = (state = initialState, action) => {
                 cityTemp: Math.round(action.payload.main.temp - 273.15),
                 error: false,
             }
+            // otherwise show an error
         case LOAD_DATA_FAILURE:
             return {
                 ...state,

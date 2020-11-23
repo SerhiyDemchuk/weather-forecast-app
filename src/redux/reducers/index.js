@@ -1,22 +1,10 @@
-import { LOAD_DATA_FAILURE, LOAD_DATA_SUCCESS, NAME_FROM_INPUT } from '../actions/ActionTypes';
+import { LOAD_DATA_FAILURE, LOAD_DATA_SUCCESS } from '../actions/actionTypes';
 
 let initialState = {
     cityName: '',
     countryName: '',
     cityDesc: '',
     cityTemp: '',
-}
-
-export const nameFromInputReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case NAME_FROM_INPUT:
-            return {
-                ...state,
-                inputValue: action.payload,
-            }
-        default:
-            return state;
-    }
 }
 
 export const loadDataSuccessReducer = (state = initialState, action) => {

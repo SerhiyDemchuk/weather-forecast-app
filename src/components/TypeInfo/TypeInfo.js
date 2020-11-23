@@ -1,9 +1,8 @@
 import React from 'react';
 import ShowInfo from '../ShowInfo/ShowInfo';
-import * as actionCreators from '../../actions';
+import * as actionCreators from '../../redux/actions';
 import {connect} from 'react-redux';
-// import axios from 'axios';
-// import {loadData} from '../../actions';
+import { loadDataSuccessReducer } from '../../redux/reducers';
 
 class TypeInfo extends React.Component {
     constructor(props) {
@@ -19,7 +18,7 @@ class TypeInfo extends React.Component {
     }
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         return (
             <div>
                 <div className="input">
@@ -51,7 +50,9 @@ class TypeInfo extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return state;
+    return {
+        loadDataSuccessReducer: loadDataSuccessReducer
+    }
 }
 
 export default connect (mapStateToProps, actionCreators)(TypeInfo);

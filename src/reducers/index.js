@@ -1,21 +1,17 @@
 import { LOAD_DATA } from '../actions/ActionTypes';
 
-let defaultState = {
-    inputValue: '',
-    apiKey: '',
+let initialState = {
     cityName: '',
     countryName: '',
     cityDesc: '',
     cityTemp: '',
 }
 
-const loadDataReducer = (state = defaultState, action) => {
+const loadDataReducer = (state = initialState, action) => {
     switch(action.type) {
         case LOAD_DATA: 
             return {
                 ...state,
-                inputValue: '',
-                apiKey: '',
                 cityName: action.payload.name,
                 countryName: action.payload.sys.country,
                 cityDesc: action.payload['weather'][0]['description'],

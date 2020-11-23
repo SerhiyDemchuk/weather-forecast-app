@@ -63,12 +63,12 @@ class TypeInfo extends React.Component {
                         className="input-value"
                         placeholder="City name..."
                         defaultValue={this.state.inputValue}
-                        onChange={this.props.typeCity} />
+                        onChange={this.typeCity} />
 
                     <input
                         type="submit"
                         className="button"
-                        value="Submit"
+                        defaultValue="Submit"
                         onClick={this.props.fetchApi} />
                 </div>
                 <div>

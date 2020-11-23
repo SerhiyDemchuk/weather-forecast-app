@@ -1,4 +1,4 @@
-import { LOAD_DATA } from '../actions/ActionTypes';
+import { LOAD_DATA_FAILURE, LOAD_DATA_SUCCESS, NAME_FROM_INPUT } from '../actions/ActionTypes';
 
 let initialState = {
     cityName: '',
@@ -7,9 +7,21 @@ let initialState = {
     cityTemp: '',
 }
 
-const loadDataReducer = (state = initialState, action) => {
+export const nameFromInputReducer = (state = initialState, action) => {
     switch(action.type) {
-        case LOAD_DATA: 
+        case NAME_FROM_INPUT:
+            return {
+                ...state,
+                inputValue: action.payload,
+            }
+        default:
+            return state;
+    }
+}
+
+export const loadDataSuccessReducer = (state = initialState, action) => {
+    switch(action.type) {
+        case LOAD_DATA_SUCCESS: 
             return {
                 ...state,
                 cityName: action.payload.name,
@@ -22,4 +34,17 @@ const loadDataReducer = (state = initialState, action) => {
     }
 }
 
-export default loadDataReducer;
+export const loadDataFailureReducer = (state = initialState, action) => {
+    switch(action.type) {
+        case LOAD_DATA_FAILURE: 
+            return {
+                ...state,
+                cityName: 'An error occured',
+                countryName: '',
+                cityDesc: 'Please, type another name',
+                cityTemp: '',
+            }
+        default:
+            return state;
+    }
+}

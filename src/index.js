@@ -6,9 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import loadDataReducer from './reducers';
+import {loadDataSuccessReducer} from './reducers';
 
-let store = createStore(loadDataReducer, applyMiddleware(thunk));
+let store = createStore(loadDataSuccessReducer, applyMiddleware(thunk));
 
 
 ReactDOM.render(

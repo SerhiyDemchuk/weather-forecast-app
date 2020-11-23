@@ -1,2 +1,3 @@
-export const LOAD_DATA = 'LOAD_DATA';
-// export const SEND_REQUEST = 'SEND_REQUEST';
+export const LOAD_DATA_SUCCESS = 'LOAD_DATA_SUCCESS';
+export const LOAD_DATA_FAILURE ='LOAD_DATA_FAILURE';
+export const NAME_FROM_INPUT = 'NAME_FROM_INPUT';

@@ -2,6 +2,8 @@ import React from 'react';
 import ShowInfo from '../ShowInfo/ShowInfo';
 import * as actionCreators from '../../actions';
 import {connect} from 'react-redux';
+// import axios from 'axios';
+// import loadData from '../../actions';
 
 class TypeInfo extends React.Component {
     constructor(props) {
@@ -16,7 +18,7 @@ class TypeInfo extends React.Component {
         this.setState({ inputValue: e.target.value });
     }
 
-    // fetchApi(value) {
+    // fetchApi() {
     //     console.log('I\'m active!!!');
     //     return(dispatch) => {
     //         return axios.get(`https://api.openweathermap.org/data/2.5/weather?q=London&appid=f10b637ca08b184f47102d9f1de2c344`)

@@ -1,4 +1,4 @@
-import { LOAD_DATA_FAILURE, LOAD_DATA_SUCCESS } from '../actions/actionTypes';
+import { LOAD_DATA_FAILURE, LOAD_DATA_REQUEST, LOAD_DATA_SUCCESS } from '../actions/actionTypes';
 
 let initialState = {
     cityName: '',
@@ -11,6 +11,10 @@ let initialState = {
 
 export const loadDataReducer = (state = initialState, action) => {
     switch (action.type) {
+        case LOAD_DATA_REQUEST:
+            return{
+                ...state
+            }
         // in a case of success we get a needed info to be saved in out state
         case LOAD_DATA_SUCCESS:
             return {

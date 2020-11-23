@@ -1,6 +1,6 @@
 import React from 'react';
 import ShowInfo from '../ShowInfo/ShowInfo';
-import * as actionCreators from '../../redux/actions';
+import * as actionCreators from '../../redux/fetchApi';
 import {connect} from 'react-redux';
 
 class TypeInfo extends React.Component {
@@ -24,15 +24,14 @@ class TypeInfo extends React.Component {
                         type="text"
                         className="input-value"
                         placeholder="City name..."
-                        defaultValue={this.state.inputValue}
+                        value={this.state.inputValue}
                         onChange={this.typeCity} />
 
-                    <input
+                    <button
                         type="submit"
                         className="button"
-                        defaultValue="Submit"
                         // here the value passes from state to a function as an argument
-                        onClick={() => {this.props.fetchApi(this.state.inputValue)}} />
+                        onClick={() => {this.props.fetchApi(this.state.inputValue)}}>Submit</button>
                 </div>
                 <div>
                     <ShowInfo

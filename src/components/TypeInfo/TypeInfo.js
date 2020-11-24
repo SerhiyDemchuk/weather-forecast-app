@@ -45,7 +45,8 @@ class TypeInfo extends React.Component {
                     <Barchart
                         cityTempAboveZero={this.props.cityTempAboveZero}
                         cityTempBelowZero={this.props.cityTempBelowZero}
-                        cityName={this.props.cityName} 
+                        cityName={this.props.cityName}
+                        showEl={this.props.hideEl}
                     />
                 </div>
             </div>

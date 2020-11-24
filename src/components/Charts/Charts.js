@@ -4,7 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 export default class Barchart extends PureComponent {
   render() {
     return (
-      <BarChart
+      <BarChart style={this.props.showEl}
         width={200}
         height={400}
         data={[{

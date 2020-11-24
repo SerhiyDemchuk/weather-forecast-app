@@ -7,7 +7,8 @@ let initialState = {
     cityTemp: null,
     cityTempAboveZero: null,
     cityTempBelowZero: null,
-    error: ''
+    error: '',
+    hideEl: {display: 'none'},
 }
 
 
@@ -28,6 +29,7 @@ export const loadDataReducer = (state = initialState, action) => {
                 cityTempAboveZero: Math.round(action.payload.main.temp - 273.15) >= 0 ? Math.round(action.payload.main.temp - 273.15) : null,
                 cityTempBelowZero: Math.round(action.payload.main.temp - 273.15) < 0 ? Math.round(action.payload.main.temp - 273.15) : null,
                 error: false,
+                hideEl: {}
             }
             // otherwise show an error
         case LOAD_DATA_FAILURE:
@@ -39,7 +41,8 @@ export const loadDataReducer = (state = initialState, action) => {
                 cityTemp: '',
                 cityTempAboveZero: 0,
                 cityTempBelowZero: 0,
-                error: action.payload
+                error: action.payload,
+                hideEl: {display: 'none'},
             }
         default:
             return state;

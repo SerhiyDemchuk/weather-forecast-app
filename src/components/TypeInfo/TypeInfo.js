@@ -6,7 +6,7 @@ import Barchart from '../Charts/Charts';
 
 class TypeInfo extends React.Component {
     constructor(props) {
-        super();
+        super(props);
         this.state = {
             inputValue: '',
         }
@@ -32,8 +32,7 @@ class TypeInfo extends React.Component {
                         type="submit"
                         className="button"
                         // here the value passes from state to a function as an argument
-                        onClick={() => {
-                            this.props.fetchApi(this.state.inputValue)}}>Submit</button>
+                        onClick={() => {this.props.fetchApi(this.state.inputValue)}}>Submit</button>
                 </div>
                 <div className="show-info">
                     <ShowInfo

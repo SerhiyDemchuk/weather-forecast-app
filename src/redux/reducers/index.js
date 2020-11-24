@@ -33,8 +33,12 @@ export const loadDataReducer = (state = initialState, action) => {
         case LOAD_DATA_FAILURE:
             return {
                 ...state,
+                countryName: '',
                 cityName: 'An error occured',
                 cityDesc: 'Please, type another name',
+                cityTemp: '',
+                cityTempAboveZero: 0,
+                cityTempBelowZero: 0,
                 error: action.payload
             }
         default:

@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 export default class Barchart extends PureComponent {
-
   render() {
     return (
       <BarChart

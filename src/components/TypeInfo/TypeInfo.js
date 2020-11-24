@@ -1,24 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ShowInfo from '../ShowInfo/ShowInfo';
-import * as actionCreators from '../../redux/fetchApi';
-import {connect} from 'react-redux';
+import * as fetchApi from '../../redux/fetchApi';
 import Barchart from '../Charts/Charts';
 
 class TypeInfo extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            inputValue: '',
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: '',
+    };
+  }
 
     // pass the input value to state
     typeCity = (e) => {
-        this.setState({ inputValue: e.target.value });
+      this.setState({ inputValue: e.target.value });
     }
 
     render() {
-        return (
+      return (
             <div>
                 <div className="input">
                     <input
@@ -32,7 +32,7 @@ class TypeInfo extends React.Component {
                         type="submit"
                         className="button"
                         // here the value passes from state to a function as an argument
-                        onClick={() => {this.props.fetchApi(this.state.inputValue)}}>Submit</button>
+                        onClick={() => { this.props.fetchApi(this.state.inputValue); }}>OK</button>
                 </div>
                 <div className="show-info">
                     <ShowInfo
@@ -50,12 +50,10 @@ class TypeInfo extends React.Component {
                     />
                 </div>
             </div>
-        )
+      );
     }
 }
 
-const mapStateToProps = (state) => {
-    return state;
-}
+const mapStateToProps = (state) => state;
 
-export default connect (mapStateToProps, actionCreators)(TypeInfo);
+export default connect(mapStateToProps, fetchApi)(TypeInfo);
